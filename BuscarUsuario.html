@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Buscar Usuario</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #0066cc;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .button-group button {
+      flex: 1;
+      padding: 10px;
+      font-size: 14px;
+      margin: 0 5px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #0066cc;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-group button:hover {
+      background-color: #004a99;
+    }
+
+    .volver {
+      display: block;
+      margin-top: 25px;
+      color: #0066cc;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .volver:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Buscar Usuario</h2>
+    <form action="dashboard.html" method="post">
+      <input type="text" name="apellido" placeholder="Apellido" required>
+      <div class="button-group">
+        <button type="submit">Agregar</button>
+        <button type="reset">Listar</button>
+      </div>
+    </form>
+    <a class="volver" href="Indice.html">Volver</a>
+  </div>
+</body>
+</html>
+

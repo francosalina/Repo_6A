@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agregar Usuario</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      background-color: #0066cc;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 28px;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 500px;
+      padding: 30px;
+    }
+
+    form {
+      background-color: #f9f9f9;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 20px;
+      color: #003366;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .botones {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #004a99;
+    }
+
+    button[type="button"] {
+      background-color: #888;
+    }
+
+    button[type="button"]:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Agregar Usuario</h1>
+  </header>
+
+  <main>
+    <form id="formulario">
+      <label>Nombre:
+        <input type="text" id="nombre" required>
+      </label>
+      <label>Apellido:
+        <input type="text" id="apellido" required>
+      </label>
+      <label>Teléfono:
+        <input type="tel" id="telefono" required>
+      </label>
+      <label>Email:
+        <input type="email" id="email" required>
+      </label>
+      <div class="botones">
+        <button type="submit">Aceptar</button>
+	<a href="Indice.html" style="padding: 10px 15px; background-color: #0066cc; color: white; border: none; border-radius: 6px; text-decoration: none; font-family: sans-serif;">Volver</a>
+
+      </div>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+      const nuevoUsuario = {
+        nombre: document.getElementById('nombre').value,
+        apellido: document.getElementById('apellido').value,
+        telefono: document.getElementById('telefono').value,
+        email: document.getElementById('email').value
+      };
+
+      usuarios.push(nuevoUsuario);
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+      alert('Usuario guardado correctamente');
+      document.getElementById('formulario').reset();
+    });
+  </script>
+</body>
+</html>
+
