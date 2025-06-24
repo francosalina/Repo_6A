@@ -1,29 +1,97 @@
-<html>
-	<head>
-		<title> Comidas Favoritas </title>
-	</head>
-	<body>
-		<h1> COMIDAS FAVORITAS </h1>
-		<br>
-		<table border="1">
-		<tr>
-			<th>COMIDA</th>
-			<th>IMAGEN</th>
-		</tr>
-		<tr>
-			<td>Pizza</td>
-			<td><img src="Imagenes/pizza.jpg" alt="Pizza" width="225"</td>
-		</tr>
-                <tr>
-                        <td>Hamburguesa</td>
-			<td> <img src="Imagenes/hamburguesa.jpg"alt="Hamburguesa" width="225"> </td>
-		</tr>
-		<tr>
-			<td>Milanesa</td>
-			<td> <img src="Imagenes/milanesa.jpg" alt="Milanesa" width="225"> </td>
-		</tr>
-		</table>
-		<br>
-		<a href="Indice.html"> Volver </a>
-	</body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comidas Favoritas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #cfd8dc;
+            color: #0d47a1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #1565c0;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #90caf9;
+            color: #0d47a1;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        img {
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            background-color: #90caf9;
+            color: #0d47a1;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(13, 71, 161, 0.3);
+            transition: all 0.25s ease;
+        }
+
+        a:hover {
+            background-color: #42a5f5;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(13, 71, 161, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <h1>Comidas Favoritas</h1>
+    <table>
+        <tr>
+            <th>Comida</th>
+            <th>Imagen</th>
+        </tr>
+        <tr>
+            <td>Pizza</td>
+            <td><img src="Imagenes/pizza.jpg" alt="Pizza" width="225"></td>
+        </tr>
+        <tr>
+            <td>Hamburguesa</td>
+            <td><img src="Imagenes/hamburguesa.jpg" alt="Hamburguesa" width="225"></td>
+        </tr>
+        <tr>
+            <td>Milanesa</td>
+            <td><img src="Imagenes/milanesa.jpg" alt="Milanesa" width="225"></td>
+        </tr>
+    </table>
+    <a href="index.html">Volver</a>
+</body>
 </html>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loop Control 3</title>
+  <style>
+    .volver {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #90caf9;
+      color: #0d47a1;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(13, 71, 161, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .volver:hover {
+      background-color: #42a5f5;
+      color: #ffffff;
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(13, 71, 161, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+<script type="text/javascript">
+  document.write("Entering the loop!<br />");
+
+  outerloop: // etiqueta para el bucle exterior
+  for (var i = 0; i < 5; i++) {
+    document.write("Outerloop: " + i + "<br />");
+
+    innerloop: // etiqueta para el bucle interior
+    for (var j = 0; j < 5; j++) {
+      if (j > 3) break;               // corta solo el bucle innerloop
+      if (i == 2) break innerloop;    // corta el innerloop cuando i es 2
+      if (i == 4) break outerloop;    // corta todo el outerloop cuando i es 4
+
+      document.write("Innerloop: " + j + "<br />");
+    }
+  }
+
+  document.write("Exiting the loop!<br />");
+</script>
+<br>
+<br>
+<a href="../JS.html" class="volver">Volver</a>
+</body>
+</html>
+

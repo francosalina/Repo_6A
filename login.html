@@ -5,78 +5,101 @@
   <title>Login</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #cfd8dc;
+      color: #0d47a1;
       display: flex;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
+      justify-content: center;
+      min-height: 100vh;
       margin: 0;
+      padding: 20px;
     }
 
-    .login-container {
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    .login-box {
+      background-color: #ffffff;
+      padding: 25px 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(13, 71, 161, 0.2);
       width: 100%;
       max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    h1 {
+      color: #1565c0;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
       text-align: center;
     }
 
-    h2 {
-      color: #0066cc;
-      margin-bottom: 20px;
+    label {
+      font-size: 0.9rem;
+      font-weight: 600;
     }
 
     input[type="text"],
     input[type="password"] {
-      width: 100%;
       padding: 10px;
-      margin: 10px 0 20px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
+      font-size: 0.9rem;
+      border: 1.5px solid #90caf9;
+      border-radius: 10px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: #0066cc;
-      color: white;
+    input:focus {
+      border-color: #42a5f5;
+      box-shadow: 0 0 5px rgba(66, 165, 245, 0.4);
+      outline: none;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      background-color: #90caf9;
+      color: #0d47a1;
       border: none;
-      border-radius: 6px;
+      padding: 10px;
+      font-size: 0.95rem;
+      border-radius: 10px;
       cursor: pointer;
-      font-size: 14px;
-      transition: background-color 0.2s ease;
-    }
-
-    button:hover {
-      background-color: #004a99;
-    }
-
-    .volver {
-      display: block;
-      margin-top: 15px;
-      color: #0066cc;
+      box-shadow: 0 3px 6px rgba(13, 71, 161, 0.2);
+      transition: all 0.2s ease;
+      text-align: center;
       text-decoration: none;
     }
 
-    .volver:hover {
-      text-decoration: underline;
+    .btn:hover {
+      background-color: #42a5f5;
+      color: #ffffff;
+      transform: scale(1.03);
+      box-shadow: 0 6px 12px rgba(13, 71, 161, 0.3);
     }
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <h2>Iniciar Sesión</h2>
-    <form action="dashboard.html" method="post">
-      <input type="text" name="usuario" placeholder="Usuario" required>
-      <input type="password" name="clave" placeholder="Contraseña" required>
-      <button type="submit">Entrar</button>
-    </form>
-    <a class="volver" href="Indice.html">Volver</a>
-  </div>
+  <form class="login-box" action="#" method="post">
+    <h1>Login</h1>
+
+    <label for="usuario">Usuario</label>
+    <input type="text" id="usuario" name="usuario" required>
+
+    <label for="contrasena">Contraseña</label>
+    <input type="password" id="contrasena" name="contrasena" required>
+
+    <div class="button-group">
+      <button type="submit" class="btn">Ingresar</button>
+      <a href="index.html" class="btn">Volver</a>
+    </div>
+  </form>
 </body>
 </html>
 

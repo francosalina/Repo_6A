@@ -1,117 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Lista de Usuarios</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #ffffff;
-      color: #003366;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
 
-    h1 {
-      text-align: center;
-      background-color: #0066cc;
-      color: white;
-      padding: 20px 0;
-      margin: 0;
-    }
+        table {
+            border-collapse: collapse;
+            width: 600px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
 
-    #listaUsuarios {
-      max-width: 700px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
 
-    .usuario {
-      border: 1px solid #ccc;
-      border-left: 6px solid #0066cc;
-      padding: 15px;
-      margin-bottom: 15px;
-      background-color: #f9f9f9;
-      border-radius: 5px;
-    }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
 
-    .usuario strong {
-      font-size: 1.1em;
-    }
+        .actions i {
+            margin-right: 10px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
 
-    button {
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      margin: 5px 10px 0 0;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
+        .actions i:hover {
+            color: #3498db;
+        }
 
-    button:hover {
-      background-color: #004a99;
-    }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
 
-    .botones-inferiores {
-      text-align: center;
-      margin: 30px 0;
-    }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            padding: 5px 8px;
+            border-radius: 4px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; 
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+            white-space: nowrap;
+        }
 
-    p {
-      text-align: center;
-      font-size: 1.1em;
-    }
-  </style>
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .volver-btn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
+        }
+
+        .volver-btn:hover {
+            background-color: #2874a6;
+        }
+    </style>
 </head>
 <body>
-  <h1>Lista de Usuarios</h1>
-  <div id="listaUsuarios"></div>
 
-  <div class="botones-inferiores">
-	<a href="AgregarUsuario.html" style="padding: 10px 15px; background-color: #0066cc; color: white; border: none; border-radius: 6px; text-decoration: none; font-family: sans-serif;">Agregar otro usuario</a>
-	<a href="Indice.html" style="padding: 10px 15px; background-color: #0066cc; color: white; border: none; border-radius: 6px; text-decoration: none; font-family: sans-serif;">Volver</a>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Acciones</th>
+        </tr>
+        <tr>
+            <td>Juan</td>
+            <td>Pérez</td>
+            <td class="actions">
+                <span class="tooltip">
+                    <i class="fas fa-pen"></i>
+                    <span class="tooltiptext">Editar</span>
+                </span>
+                <span class="tooltip">
+                    <i class="fas fa-trash"></i>
+                    <span class="tooltiptext">Borrar</span>
+                </span>
+                <span class="tooltip">
+                    <i class="fas fa-search"></i>
+                    <span class="tooltiptext">Consultar</span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>Ana</td>
+            <td>Gómez</td>
+            <td class="actions">
+                <span class="tooltip">
+                    <i class="fas fa-pen"></i>
+                    <span class="tooltiptext">Editar</span>
+                </span>
+                <span class="tooltip">
+                    <i class="fas fa-trash"></i>
+                    <span class="tooltiptext">Borrar</span>
+                </span>
+                <span class="tooltip">
+                    <i class="fas fa-search"></i>
+                    <span class="tooltiptext">Consultar</span>
+                </span>
+            </td>
+        </tr>
+    </table>
 
-  </div>
+    <a href="index.html">
+        <button class="volver-btn">Volver</button>
+    </a>
 
-  <script>
-    function cargarUsuarios() {
-      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-      const contenedor = document.getElementById('listaUsuarios');
-      contenedor.innerHTML = '';
-
-      if (usuarios.length === 0) {
-        contenedor.innerHTML = '<p>No hay usuarios registrados.</p>';
-        return;
-      }
-
-      usuarios.forEach((usuario, index) => {
-        const div = document.createElement('div');
-        div.className = 'usuario';
-        div.innerHTML = `
-          <strong>Usuario ${index + 1}</strong><br>
-          Nombre: ${usuario.nombre}<br>
-          Apellido: ${usuario.apellido}<br>
-          Teléfono: ${usuario.telefono}<br>
-          Email: ${usuario.email}<br><br>
-          <button onclick="eliminarUsuario(${index})">Eliminar</button>
-        `;
-        contenedor.appendChild(div);
-      });
-    }
-
-    function eliminarUsuario(index) {
-      let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-      if (confirm(`¿Estás seguro de eliminar al usuario "${usuarios[index].nombre} ${usuarios[index].apellido}"?`)) {
-        usuarios.splice(index, 1);
-        localStorage.setItem('usuarios', JSON.stringify(usuarios));
-        cargarUsuarios();
-      }
-    }
-
-    window.onload = cargarUsuarios;
-  </script>
 </body>
 </html>
 

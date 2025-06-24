@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Switch Case 2</title>
+  <style>
+    .volver {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #90caf9;
+      color: #0d47a1;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(13, 71, 161, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .volver:hover {
+      background-color: #42a5f5;
+      color: #ffffff;
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(13, 71, 161, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+<script type="text/javascript">
+  var grade = 'A';
+  document.write("Entering switch block<br />");
+
+  switch (grade) {
+    case 'A':
+      document.write("Good job<br />");
+    case 'B':
+      document.write("Pretty good<br />");
+    case 'C':
+      document.write("Passed<br />");
+    case 'D':
+      document.write("Not so good<br />");
+    case 'F':
+      document.write("Failed<br />");
+    default:
+      document.write("Unknown grade<br />");
+  }
+
+  document.write("Exiting switch block");
+</script>
+
+<p>Set the variable to different value and then try...</p>
+<br>
+<br>
+<a href="../JS.html" class="volver">Volver</a>
+</body>
+</html>
+
